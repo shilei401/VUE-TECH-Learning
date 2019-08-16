@@ -3,6 +3,7 @@ const pageRouter = require('./routers/dev-ssr')
 const apiRouter = require('./routers/api')
 const createDb = require('./db/db')
 const config = require('../app.config')
+const koaBody = require('koa-body')
 
 const db = createDb(config.db.appId, config.db.appKey)
 
@@ -35,8 +36,9 @@ app.use(async (ctx, next) => {
   await next()
 })
 
-app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
+app.use(koaBody())
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
+app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
 const HOST = process.env.HOST || '0.0.0.0'
 const PORT = process.env.PORT || 3333

@@ -43,6 +43,28 @@ module.exports = (appId, appKey) => {
           headers: getHeaders()
         })
       )
+    },
+
+    // 添加一个todo
+    async addTodo (todo) {
+      return handleRequest(
+        await request.post(
+          `/${className}`,
+          todo,
+          { headers: getHeaders() }
+        )
+      )
+    },
+
+    // 更新todo
+    async updateTodo (id, todo) {
+      return handleRequest(
+        await request.put(
+          `/${className}/${id}`,
+          todo,
+          { headers: getHeaders() }
+        )
+      )
     }
   }
 }

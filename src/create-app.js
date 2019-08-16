@@ -6,11 +6,13 @@ import Vuex from 'vuex'
 import App from './app.vue'
 import createRouter from './config/router'
 import createStore from './store/store'
+import Meta from 'vue-meta'
 
 import './assets/styles/global.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(Meta)
 
 export default () => {
   const router = createRouter()

@@ -43,6 +43,7 @@ serverCompiler.watch({}, (err, stats) => {
 // 步骤2: 编写服务端渲染的函数
 // 写一个koa中间件，用来帮助处理服务端渲染要返回的内容
 const handleSSR = async (ctx) => {
+  console.log('开始服务端渲染')
   if (!bundle) { // 存在
     ctx.body = '您等一会，别着急......'
     return

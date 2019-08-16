@@ -33,10 +33,6 @@ const devServer = {
   overlay: {
     error: true
   },
-  proxy: {
-    '/api': 'http://127.0.0.1:3333',
-    '/user': 'http://127.0.0.1:3333'
-  },
   hot: true,
   historyApiFallback: {
     index: '/public/index.html'
